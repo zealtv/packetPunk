@@ -1,10 +1,10 @@
 # packetPunk 📦🧷
 
-![packetPunk](./packetpunk.png)
+![packetPunk](./packetPunk.png)
 
-**packetPunk** is an arduino sketch from the **dstike esp32 watch devkit**, an ESP32 microcontroller with an OLED display, a NeoPixel, flashlight, buzzer, battery, charging circuit, SD card slot, and a few buttons.
+**packetPunk** is an Arduino sketch for the **DSTIKE ESP32 watch devkit**, an ESP32 microcontroller with an OLED display, a NeoPixel, flashlight, buzzer, battery, charging circuit, SD card slot, and a few buttons.
 
-The application listens to incoming OSC messages on port 9000, and when in recording mode, writes these messages to SD card with timestamps for easy playback.
+The application listens to incoming OSC messages on port 9000 and writes these messages to SD card with timestamps for easy playback.  It has a limited but friendly onscreen UI and status is communicated via the onboard RGB LED.
 
 I use it with the supberb iOS application [gyrosc](https://www.bitshapesoftware.com/instruments/gyrosc/) but it should work with any application capable of sending OSC.
 
