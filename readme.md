@@ -9,7 +9,7 @@ The application listens to incoming OSC messages on port 9000 and writes these m
 I use it with the supberb iOS application [gyrosc](https://www.bitshapesoftware.com/instruments/gyrosc/) but it should work with any application capable of sending OSC.
 
 
-### usage
+### Usage
 - Follow onscreen instructions to connect to network (password is packetPunk)
 - OSC messages are received on port 9000.
 - Press the top left button to start logging, press again to save file.
@@ -33,5 +33,5 @@ Example log playback patches for Max and Pure Data included.
 ### todo / wishlist
 - Better dynamic WiFi management (update state if knocked off network).
 - Menu to allow editing port and other settings
-- Eficient dynamic display with battery level and recording time.
+- Efficient dynamic display with battery level and recording time.
 - Playback!!
