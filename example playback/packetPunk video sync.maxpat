@@ -12,7 +12,7 @@
 		"classnamespace" : "box",
 		"rect" : [ 827.0, 301.0, 648.0, 465.0 ],
 		"bglocked" : 0,
-		"openinpresentation" : 0,
+		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
 		"default_fontface" : 0,
 		"default_fontname" : "Courier New",
@@ -92,7 +92,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 5.0, 197.0, 202.0, 181.0 ],
-									"presentation_linecount" : 13,
 									"text" : "Notes:\n\nAs the video is controlled from the playback of the data log, any drops in data rate in the log will present as dropped frames during playback,\n\nThis is designed as a helper tool when working with synchronised video and data.  Resynchronising of the original video is recommended for anything that needs to look good.",
 									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 								}
@@ -107,7 +106,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 5.0, 6.0, 202.0, 87.0 ],
-									"presentation_linecount" : 6,
 									"text" : "Steps for use:\n\n* click load to load video\n* adjust sync point to desired fram\n* playback is then controlled via packetPunk playback.maxpat",
 									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 								}
@@ -157,7 +155,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 577.5, 14.0, 159.0, 141.0 ],
+					"patching_rect" : [ 577.5, 14.0, 159.0, 176.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 3.5, 5.0, 640.0, 40.0 ],
 					"text" : "\t//packetPunk [video synchroniser]",
@@ -173,7 +171,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 479.5, 646.0, 78.0, 21.0 ],
+					"patching_rect" : [ 479.5, 646.0, 78.0, 36.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 105.5, 49.0, 87.0, 21.0 ],
 					"text" : "sync point"
@@ -273,7 +271,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 479.5, 447.0, 150.0, 20.0 ],
+					"patching_rect" : [ 479.5, 447.0, 150.0, 34.0 ],
 					"text" : "seconds to frame number"
 				}
 
@@ -320,7 +318,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 505.5, 375.0, 150.0, 20.0 ],
+					"patching_rect" : [ 505.5, 375.0, 150.0, 34.0 ],
 					"text" : "milliseconds to seconds"
 				}
 
@@ -441,7 +439,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 331.0, 251.0, 47.0, 22.0 ],
+					"patching_rect" : [ 331.0, 251.0, 47.0, 36.0 ],
 					"text" : "size $1"
 				}
 
