@@ -31,7 +31,7 @@ using namespace ace_button;
 //#define BUZZER 32
 //#define BUTTON_TOP 22
 #define BUTTON_BOTTOM 5
-#define TOUCH_PIN 33
+//#define TOUCH_PIN 33
 #define PIXEL_PIN  18    // Digital IO pin connected to the NeoPixels.
 #define PIXEL_COUNT 1
 
@@ -50,8 +50,18 @@ String currentSSID = "...";
 //File currentFile;
 //char msgStringValueBuffer[1024] = "";
 
-int currentValue;
-int lastValue;
+
+//touch stuff
+typedef struct
+{
+  int pin;
+  int currentValue;
+  int lastValue;
+}TouchInput;
+
+#define NUMTOUCHPINS 8
+TouchInput touchInputs[NUMTOUCHPINS];
+int touchPins[NUMTOUCHPINS] = {32, 33, 12, 13, 15, 14, 2, 4};
 
 
 AceButton wheelPress(WHEEL_PRESS);
@@ -117,21 +127,20 @@ void setup() {
   buttonConfig->setFeature(ButtonConfig::kFeatureRepeatPress);
 
 
-  Serial.println("before display set up");
   
   display.init();
 //  display.flipScreenVertically();
   display.clear();
 
-  Serial.println("after display set up");
-
   strip.begin();
   updatePixel();
 
-  Serial.println("after update pixel");
-
-  currentValue = 0;
-  lastValue = 1;
+  for(int i = 0; i < NUMTOUCHPINS; i++){
+    touchInputs[i].pin = touchPins[i];
+    touchInputs[i].currentValue = 0;
+    touchInputs[i].lastValue = 1;
+  }
+  
   oscAddress = "/" + macString + "/touch";
 
   
@@ -193,13 +202,17 @@ void loop() {
 //  updateDisplay();  //<-expensive
 
   bool changeDetected = false;
-  currentValue = touchRead(TOUCH_PIN);
-  if( currentValue != lastValue ) changeDetected = true;
-  lastValue = currentValue;
+
+  
+  for(int i = 0; i < NUMTOUCHPINS; i++){
+    touchInputs[i].currentValue = touchRead(touchInputs[i].pin);
+    if( touchInputs[i].currentValue != touchInputs[i].lastValue ) changeDetected = true;
+    touchInputs[i].lastValue = touchInputs[i].currentValue;
+  }
 
   if(changeDetected){
     OSCMessage msg(oscAddress.c_str());
-    msg.add( currentValue );
+    for(int i = 0; i < NUMTOUCHPINS; i++) msg.add( touchInputs[i].currentValue );
     Udp.beginPacket(outIp, outPort);
     msg.send(Udp);
     Udp.endPacket();
